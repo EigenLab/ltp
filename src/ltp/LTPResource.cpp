@@ -113,8 +113,8 @@ int LTPResource::LoadPostaggerResource(const char * model_file) {
 int LTPResource::LoadPostaggerResource(const char* model_file, const char* lexicon) {
   if (m_isPostaggerResourceLoaded) { return 0; }
 
-  INFO_LOG("Loading postagger model from \"%s\" ...", model_file);
-  m_postagger = postagger_create_postagger(model_file);
+  INFO_LOG("Loading postagger model from \"%s\", \"%s\" ...", model_file, lexicon);
+  m_postagger = postagger_create_postagger(model_file, lexicon);
   if (0 == m_postagger) {
     ERROR_LOG("Failed to load postagger model");
     return -1;
